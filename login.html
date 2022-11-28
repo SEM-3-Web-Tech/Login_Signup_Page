@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<title>Login Page</title>
+<link rel="stylesheet" type="text/css" href="C:\Users\CHARUTHA\Desktop\wtprj\login_css.css">
+<script crossdomain src="https://unpkg.com/react@16/umd/react.development.js"> </script>
+<script crossdomain src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"> </script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"> </script>
+
+
+</head>
+
+<body>
+</div>
+
+<div class="c1">
+<div class="form-box">
+<div class="button-box">
+<div id="btn"></div>
+<button type="button" class="toggle-btn" onclick="login()">Login</button>
+<button type="button" class="toggle-btn" onclick="signup()">Signup</button>
+
+</div>
+<form id="login" class="input-group" action="__blank" method="POST">
+
+<input type="text" class="input-field" placeholder="Email ID" id="email_l" required>
+<input type="password" class="input-field" placeholder="Password" id="pass_l" required>
+<input type="checkbox" class="check-box"><span>Remember Password</span>
+<button type="submit" class="submit-btn" id="login_submit">Login</button>
+</form>
+
+<form id="signup" class="input-group">
+
+<input type="text" class="input-field" placeholder="Username" id="user_s" required>
+<input type="text" class="input-field" placeholder="Email ID" id="email_s" required>
+<input type="password" class="input-field" placeholder="Create Password" id="epass_s" required>
+<input type="password" class="input-field" placeholder="Confirm Password" id="rpass_s" required>
+
+<input type="checkbox" class="check-box" required><span>I agree to the terms and conditions</span>
+<button type="submit" class="submit-btn" id="signup_submit" >Signup</button>
+</form>
+
+
+</div>
+</div>
+
+<script>
+var x=document.getElementById("login");
+var y=document.getElementById("signup");
+var z=document.getElementById("btn");
+
+function signup(){
+x.style.left="-450px";
+y.style.left="50px";
+z.style.left="110px";
+}
+
+function login(){
+x.style.left="50px";
+y.style.left="450px";
+z.style.left="0";
+}
+</script>
+
+
+<script>
+
+const email_s=document.getElementById('email_s');
+const epass_s=document.getElementById('epass_s');
+const rpass_s=document.getElementById('rpass_s');
+const submit_s=document.getElementById('signup_submit');
+
+submit_s.addEventListener('click',fun1);
+function fun1(){	
+	var pass1=epass_s.value;
+	var pass2=rpass_s.value;
+	var email=email_s.value;
+
+	if((!email.includes("@"))||(!email.includes(".com")))
+	{
+		alert('Invalid Email');
+	     event.preventDefault();
+		 document.getElementById('signup').reset();
+	}
+	else if((pass1.length)<6)
+	{
+		alert('Password less than 6 characters!');
+		event.preventDefault();
+		document.getElementById('signup').reset();
+	}		
+	else if(pass1!=rpass_s.value)
+	{
+		alert('Passwords do not match');
+		event.preventDefault();
+		document.getElementById('signup').reset();
+	}
+}
+</script>
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js></script>
+<script src="./fb_signup.js"></script>
+<script src="./fb_login.js"></script>
+
+
+</body>
+</html>
